@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Subject, Teacher, Student, Coach, StudentProgress
+from base.models import Subject, Teacher, Student, Coach, StudentProgress, ResourceManagement
 
 class SubjectSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -28,4 +28,10 @@ class StudentProgressSerializer(serializers.ModelSerializer):
 	student = StudentSerializer(many=False, read_only=True)
 	class Meta:
 		model = StudentProgress
+		fields = '__all__'
+
+class ResourceManagementSerializer(serializers.ModelSerializer):
+	allocated_teachers = TeacherSerializer(many=True, read_only=True)
+	class Meta:
+		model = ResourceManagement
 		fields = '__all__'

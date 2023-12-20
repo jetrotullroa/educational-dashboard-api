@@ -25,13 +25,6 @@ class Coach(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
-class Coach(models.Model):
-	name = models.CharField(max_length=100)
-	year_of_experience = models.IntegerField(default=0)
-	specialization = models.CharField(max_length=100)
-	created_at = models.DateTimeField(auto_now_add=True)
-	updated_at = models.DateTimeField(auto_now=True)
-
 class StudentProgress(models.Model):
 	class_id = models.IntegerField(default=0)
 	subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
@@ -39,5 +32,12 @@ class StudentProgress(models.Model):
 	average_score_improvement = models.IntegerField(default=0)
 	homework_completion_rate = models.IntegerField(default=0)
 	attendance_rate = models.IntegerField(default=0)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+
+class ResourceManagement(models.Model):
+	name=models.CharField(max_length=100)
+	allocated_teachers=models.ManyToManyField(Teacher)
+	utilization_rate=models.IntegerField(default=0)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)

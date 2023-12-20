@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'py_educational_dashboard.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # postgres://bgdlbfme:lSNvFVjh3VK8y_cAqooTk1BkqGepPaOu@berry.db.elephantsql.com/bgdlbfme <- I will delete this instance after demo
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
