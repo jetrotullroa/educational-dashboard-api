@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from base.models import Subject, Teacher, Student, Coach, Student, StudentProgress, ResourceManagement, TeacherActivities
-from .serializers import SubjectSerializer, TeacherSerializer, StudentSerializer, CoachSerializer, StudentProgressSerializer, ResourceManagementSerializer, TeacherActivitiesSerializer
+from base.models import Subject, Teacher, Student, Coach, Student, StudentProgress, ResourceManagement, TeacherActivities, CoachTeacherInteraction
+from .serializers import SubjectSerializer, TeacherSerializer, StudentSerializer, CoachSerializer, StudentProgressSerializer, ResourceManagementSerializer, TeacherActivitiesSerializer, CoachTeacherInteractionSerializer
 
 @api_view(['GET'])
 def subjects(request):
@@ -55,4 +55,10 @@ def resourceManagements(request):
 def teacherActivities(request, **kwargs):
 	teacherActivities = TeacherActivities.objects.filter(teacher_id=kwargs['teacher_id'])
 	serializer = TeacherActivitiesSerializer(teacherActivities, many=True)
+	return Response(serializer.data)
+
+@api_view(['GET'])
+def coachTeacherInteractions(request):
+	coachTeacherInteractions = CoachTeacherInteraction.objects.all()
+	serializer = CoachTeacherInteractionSerializer(coachTeacherInteractions, many=True)
 	return Response(serializer.data)
