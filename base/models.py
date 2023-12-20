@@ -41,3 +41,11 @@ class ResourceManagement(models.Model):
 	utilization_rate=models.IntegerField(default=0)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+
+class TeacherActivities(models.Model):
+	teacher=models.ForeignKey(Teacher, on_delete=models.CASCADE)
+	last_active=models.DateTimeField()
+	activity_score=models.IntegerField(default=0)
+	student_interaction_rating=models.CharField(max_length=5)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
