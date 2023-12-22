@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 		'base',
 		'rest_framework',
+		'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+		'corsheaders.middleware.CorsMiddleware',
+		'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+		"https://domain.com",
+		"https://api.domain.com",
+		"http://localhost:8080",
+		"http://127.0.0.1:9000",
+		"http://127.0.0.1:5173"
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_HEADERS = [
+		'*'
 ]
 
 ROOT_URLCONF = 'py_educational_dashboard.urls'

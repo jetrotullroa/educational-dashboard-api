@@ -1,8 +1,11 @@
 # EDUCATIONAL DASHBOARD BACKEND API
 
 ### How to run the server
-#### Please make sure you have psycopg2-binary installed in your system. `pip install psycopg2-binary`
+#### Please make sure you have psycopg2-binary installed in your system.
 - run `pip install psycopg2-binary`
+
+#### Please make sure you have django-cors-headers installed in your system.
+- run `python -m pip install django-cors-headers`
 
 #### To run the server
 - run `python manage.py runserver`
